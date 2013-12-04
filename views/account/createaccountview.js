@@ -5,7 +5,7 @@ define(['backbone', 'underscore', 'jade!templates/addAccount', 'models/accountmo
         template: template,
         //Constructor
         initialize: function(){
-            this.accCollection = this.options.accCollection();
+            this.accCollection = this.options.accCollection;
         },
         //Events
         events: {

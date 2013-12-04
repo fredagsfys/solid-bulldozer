@@ -1,0 +1,6 @@
+p Here's were we list and handle accounts and of course your money...
+div#target.col-xs-3
+    for item in accCollection
+        a(href='#account/#{item.id}') #{item.get("name")}
+        p
+

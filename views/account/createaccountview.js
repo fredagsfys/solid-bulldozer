@@ -5,7 +5,7 @@ define(['backbone', 'underscore', 'jade!templates/addAccount', 'models/accountmo
         template: template,
         //Constructor
         initialize: function(){
-            this.accCollection = this.options.accCollection;
+            this.accCollection = this.options.accCollection; 
         },
         //Events
         events: {
@@ -16,9 +16,11 @@ define(['backbone', 'underscore', 'jade!templates/addAccount', 'models/accountmo
             ev.preventDefault();
             //Using common/serializeObject function to get a JSON data object from form
             var myObj = $(ev.currentTarget).serializeObject();
-            
+            console.log("Saving!");
             this.accCollection.create(new AccountModel(myObj), {
                 success: function(){
+                    myObj = null;
+                    this.close();
                     Backbone.history.navigate('accounts', {trigger:true});
                 },
                 error: function(){

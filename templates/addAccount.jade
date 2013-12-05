@@ -3,7 +3,18 @@ form.form-horizontal.add-account-form
         label.col-sm-2.control-label Name
         .col-xs-2
             input(name='name').form-control
-            
+    .form-group
+        label.col-sm-2.control-label Amount
+        .col-xs-2
+            input(name='amount', value='0').form-control
+    .form-group
+        label.col-sm-2.control-label Account type
+        .col-xs-2
+            select(class="form-control",name="accountType")
+              option(value="Private") Private - 5% rate
+              option(value="Service") Service - 8% rate
+              option(value="Captial") Captial - 12% rate
+              option(value="Worldnature") Worldnature - 22% rate
     .form-group
         .col-xs-offset-2.col-xs-10
             button(type="submit").btn.btn-default Add account

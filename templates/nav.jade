@@ -3,10 +3,19 @@ ul.nav.navbar-nav
 		a(href='#start')
 			span.glyphicon.glyphicon-home
 			span  Start
-	li.accounts(data-name='accounts')
-		a(href='#accounts')
+	li.dropdown.accounts
+		a(href="#").dropdown-toggle(data-toggle="dropdown")
 			span.glyphicon.glyphicon-usd 
 			span  Accounts
+		ul.dropdown-menu
+			li
+				a(href='#accounts') 
+					span.glyphicon.glyphicon-align-left
+					span  Account list
+			li
+				a(href='#account/new')
+					span.glyphicon.glyphicon-plus-sign
+					span  New account			
 	li.loan(data-name='loan')
 		a(href='#loan')
 			span.glyphicon.glyphicon-briefcase 

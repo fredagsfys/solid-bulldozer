@@ -1,5 +1,4 @@
 console.log("...LOADING app.js")
-
 /*
     This function builds up a nested mainview using mainview, navigationview and contentview.
     After the buildup it sends the nested mainview into routing to fill it up with content depending on route-url

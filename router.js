@@ -1,43 +1,81 @@
-define(['backbone', 'jquery', 'underscore', 'views/startview', 'views/account/accountView', 'views/account/accountListView',  'views/account/createaccountview', 'views/loanview', 'collections/accountcollection'],
-function(Backbone, jquery, underscore, StartView, AccountView, AccountListView, CreateAccountView, LoanView, AccountCollection){
+console.log("...LOADING router.js")
+/*
+    This function takes care of the url-routing and builds up the view for contentView.
+    Depending on which url is visited it creates the specific view for it.
+*/
+define(['backbone', 'jquery', 'underscore', 'bootstrap', 'views/startview', 'views/account/accountView', 'views/account/accountListView',  'views/account/newAccountView', 'views/account/editAccountView', 'views/loanview', 'collections/accountcollection'],
+  function(Backbone, jquery, underscore, bootstrap, StartView, AccountView, AccountListView, EditAccountView, CreateAccountView, LoanView, AccountCollection){
     return Backbone.Router.extend({
-        
+          el : '.content',
+           //Constructor
            initialize: function(o){
-               this.mainView = o.mainView;
-               
+               this.mainView = o.mainView;           
            },
+           //URL-routes
            routes:{
+              //Start
                "" : function(){
-                    this.nav(new StartView({el:'.content'}));
-                    console.log("start");
+                  if(this.currentView)
+                    this.currentView.remove();
+
+                  this.currentView = new StartView({el: this.el})
+                  this.nav(this.currentView, 'start');
+
+                  console.log("start");
                },
                "start" : function(){
-                    this.nav(new StartView({el:'.content'}));
-                    console.log("start");
-               },
+                  if(this.currentView)
+                    this.currentView.remove();
 
+                  this.currentView = new StartView({el: this.el})
+                  this.nav(this.currentView, 'start');
+                  
+                  console.log("start");
+               },
                //Account
                "accounts" : function(){
-                    var accCollection = new AccountCollection();
-                    this.nav(new AccountListView({el:'.content', accCollection:accCollection}));
-                    console.log("accounts list");
+                  if(this.currentView)
+                    this.currentView.remove();
+
+                  this.currentView = new AccountListView({el: this.el, collection: new AccountCollection()});
+                  this.nav(this.currentView, 'accounts');
+
+                  console.log("accounts list");
                },
-               "accounts/new" : function(){
-                    var accCollection = new AccountCollection();
-                    this.nav(new CreateAccountView({el:'.content', accCollection:accCollection}));
-                    console.log("new account");
+               "account/new" : function(){
+                  if(this.currentView)
+                    this.currentView.remove();
+
+                  this.currentView = new CreateAccountView({el: this.el, collection: new AccountCollection()})
+                  this.nav(this.currentView, 'accounts');
+
+                  console.log("new account");
+               },
+               "account/:id/edit" : function(id){
+                  if(this.currentView)
+                    this.currentView.remove();
+
+                  this.currentView = new EditAccountView({el: this.el, collection: new AccountCollection()})
+                  this.nav(this.currentView, 'accounts');
+
+                  console.log("edit account");
                },
                "account/:id" : function(id){
-                    var accCollection = new AccountCollection();
-                    this.nav(new AccountView({el:'.content', accCollection:accCollection, id:id}));
-                    console.log("specific account");
+                  if(this.currentView)
+                    this.currentView.remove();
+
+                  this.currentView = new AccountView({el: this.el, collection: new AccountCollection(), id: id})
+                  this.nav(this.currentView, 'accounts');
+
+                  console.log("specific account");
                },
-               
+               //Loan
                "loan" : function(){
-                    this.nav(new LoanView());
-                    console.log("loan");
+                  this.nav(new LoanView(), 'loan');
+                  console.log("loan");
                }
            },
-           nav: function(view){ this.mainView.show(view); }
+           //Function which renders mainView and its content.
+           nav: function(view, sectionid){ this.mainView.show(view, sectionid); }
     });
 });

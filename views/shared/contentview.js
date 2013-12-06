@@ -1,12 +1,9 @@
-console.log("...LOADING contentview.js")
-define([ "backbone","jquery","underscore"],function(Backbone, jquery, underscore){
+define([ "backbone","jquery","underscore"],
+	function(Backbone, jquery, underscore){
 	return Backbone.View.extend({
-
 		render: function(view){
 		    this.$el.empty();
-		    
-		    view.render().el;
-		    
+		    view.render().el;    
 			return this;
 		}
 	});

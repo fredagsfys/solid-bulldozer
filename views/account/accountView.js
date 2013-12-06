@@ -1,24 +1,26 @@
-// View: Accounts, renders Hello World and documentation link
-
-define(['backbone', 'underscore', 'jade!templates/account'], function(Backbone, underscore, template){
+define(['backbone', 'underscore', 'jade!templates/account'], 
+    function(Backbone, underscore, template){
     return Backbone.View.extend({
         //Templates
         template: template,
         //Constructor
         initialize: function(){
-            this.accCollection = this.options.accCollection;
-            this.id = this.options.id;
-            this.listenTo(this.accCollection, 'reset', this.render, this);  
-            this.accCollection.fetch({ reset: true });
+            $('.currentPage').html("<h3>Accounts</h3>");
+            this.listenTo(this.options.collection, 'reset', this.render, this);  
+            this.options.collection.fetch({ reset: true });
         },
         //Render
         render: function(){
-            $('.currentPage').html("<h3>Accounts</h3>");
             //Render it in jade template
-            console.log(this.accCollection.get(this.id));
-            this.$el.html(this.template({model:this.accCollection.get(this.id)}));
+            this.$el.html(this.template({model:this.options.collection.get(this.options.id)}));
             
             return this;
+        },
+        remove: function() {
+          this.$el.empty();        // Remove the content we added.
+          this.undelegateEvents(); // Unbind your event handler.
+          this.stopListening();
+          return this;
         }
         
     });

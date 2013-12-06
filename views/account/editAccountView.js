@@ -5,7 +5,7 @@ define(['backbone', 'underscore', 'jade!templates/addAccount', 'models/accountmo
         template: template,
         //Constructor
         initialize: function(){
-            this.accCollection = this.options.accCollection; 
+            $('.currentPage').html("<h3>Accounts <span class='glyphicon glyphicon-chevron-right'> </span> New Account</h3>");
         },
         //Events
         events: {
@@ -16,25 +16,20 @@ define(['backbone', 'underscore', 'jade!templates/addAccount', 'models/accountmo
             ev.preventDefault();
             //Using common/serializeObject function to get a JSON data object from form
             var myObj = $(ev.currentTarget).serializeObject();
-            console.log("Saving!");
-            this.accCollection.create(new AccountModel(myObj), {
-                success: function(){
-                    myObj = null;
-                    this.close();
-                    Backbone.history.navigate('accounts', {trigger:true});
-                },
-                error: function(){
-                    //show 500?
-                }
-            });
+            this.options.collection.create(new AccountModel(myObj));
+            Backbone.history.navigate('accounts', {trigger:true});
         },
         //Display functions
         render: function(){
-            $('.currentPage').html("<h3>Accounts <span class='glyphicon glyphicon-chevron-right'> </span> New Account</h3>");
             //Render it in jade template  
             this.$el.html(this.template());
-            
             return this;
+        },
+        remove: function() {
+          this.$el.empty();        // Remove the content we added.
+          this.undelegateEvents(); // Unbind your event handler.
+          this.stopListening();
+          return this;
         }
     });
 });

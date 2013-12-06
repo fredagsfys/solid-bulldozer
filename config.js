@@ -1,5 +1,4 @@
 console.log("...LOADING config.js");
-
 //This  file is a config for all the dependencies needed in the project.
 require.config({
     paths: {
@@ -21,11 +20,15 @@ require.config({
                 exports: "Backbone"
         },
         "bb-rel": ["backbone","underscore"],
-        "bb-loc": ["backbone","underscore"]
+        "bb-loc": ["backbone","underscore"],
+        bootstrap: { 
+                deps: ["jquery"],
+                exports: "bootstrap" 
+        }
     }
 });
 
-//Init method which uses appview to render hello world! and docco documentation
+//Init method which starts up the application by calling start function inside App.js
 require(['app'], function(App){
     App.start();
 });

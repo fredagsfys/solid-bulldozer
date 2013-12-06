@@ -8,6 +8,10 @@ div.nav .navbar-header img{
     margin-left: 5px;
     margin-top: 0px;
 }
+div.navbar .dropdown a.dropdown-toggle{
+      border-left: 1px solid #333;
+  border-right: 1px solid #333;
+}
 div.navbar {
     border-radius: 0px;
     border-bottom-width: 1px;
@@ -35,6 +39,9 @@ div.content{
     border-top: 1px solid rgb(236, 235, 235);
     min-height: 500px;
     margin: 75px 10px 10px 10px;
+}
+div.content .add-account-form{
+    margin-top: 20px;
 }
 footer{
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);

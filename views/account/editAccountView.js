@@ -1,4 +1,4 @@
-define(['backbone', 'underscore', 'jade!templates/addAccount', 'models/accountmodel', 'common/serializeObject'], 
+define(['backbone', 'underscore', 'jade!templates/editAccount', 'models/accountmodel', 'common/serializeObject'], 
     function(Backbone, underscore, template, AccountModel, SerializeObject){
     return Backbone.View.extend({
         //Templates
@@ -16,20 +16,19 @@ define(['backbone', 'underscore', 'jade!templates/addAccount', 'models/accountmo
             ev.preventDefault();
             //Using common/serializeObject function to get a JSON data object from form
             var myObj = $(ev.currentTarget).serializeObject();
-            this.options.collection.create(new AccountModel(myObj));
+
+            var model = this.options.collection.getAccountById(this.options.id);
+            model.set(myObj);
+            model.save();
+            this.options.collection.set(model);
+
             Backbone.history.navigate('accounts', {trigger:true});
         },
         //Display functions
         render: function(){
             //Render it in jade template  
-            this.$el.html(this.template());
+            this.$el.html(this.template({model: this.options.collection.getAccountById(this.options.id)}));
             return this;
-        },
-        remove: function() {
-          this.$el.empty();        // Remove the content we added.
-          this.undelegateEvents(); // Unbind your event handler.
-          this.stopListening();
-          return this;
         }
     });
 });

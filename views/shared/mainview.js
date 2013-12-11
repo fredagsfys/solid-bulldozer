@@ -6,6 +6,7 @@ define([ "backbone","jquery","underscore","jade!templates/main"],
 			this.$el.html(template);
             this.$(".navbar-collapse").append(this.options.navView.render().el);
 			this.$(".content").append(this.options.contentView.el);
+			
 			return this;
 		},
 		show: function(view, sectionid){

@@ -1,7 +1,7 @@
-p Here's were we list and handle accounts and of course your money...
-    p Account name: #{model.get("name")}
-    p Total: #{model.get("amount")} kr
-    p Account type: #{model.get("accountType")}
-    p Date created: #{model.get("createDate")}
 
+p Account name: #{model.get('name')}
+p Total: #{model.get('amount')} kr
+p Account type: #{model.get('accountType')}
+p Date created: #{model.get('createDate')}
 
+a(href='#account/#{model.id}/edit').btn.btn-warning Edit #{model.get('name')}

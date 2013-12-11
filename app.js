@@ -10,9 +10,9 @@ define(['backbone', 'router', 'views/shared/mainview', 'views/shared/navview', '
             //Nesting three views into one MainView.
             var navView = new NavView(),
             contentView = new ContentView(),
-            mainView = new MainView({el:".container",navView:navView,contentView:contentView}),
+            mainView = new MainView({el: ".container",navView: navView,contentView: contentView}),
             //Passes nested MainView into routing to fill it up with chosen page
-            router = new Router({mainView:mainView});
+            router = new Router({mainView: mainView});
             
             //Calls render() method in MainView to display content
             mainView.render();

@@ -59,3 +59,7 @@ div.footer .section_bottom p{
     -webkit-font-smoothing: antialiased;
     margin: 35px 0 0 40px;
 }
+.spinner{
+    top: 200px;
+    left: 50%;
+}

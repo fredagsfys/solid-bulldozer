@@ -4,7 +4,7 @@ define([ "backbone","jquery","underscore","jade!templates/main"],
 		template: template,
 		render: function(){
 			this.$el.html(template);
-            this.$(".navbar-collapse").append(this.options.navView.render().el);
+			this.$(".navbar-collapse").append(this.options.navView.render().el);
 			this.$(".content").append(this.options.contentView.el);
 			
 			return this;

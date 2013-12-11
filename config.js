@@ -8,8 +8,9 @@ require.config({
             backbone: "lib/backbone/backbone",
             bootstrap: "lib/bootstrap/bootstrap",
             jade: "lib/jade/jade",
+            spin: "lib/spin/spin",
             "bb-rel":"lib/backbone/backbone-relational",
-            "bb-loc":"lib/backbone/backbone.localStorage.async",
+            "bb-loc":"lib/backbone/backbone.localStorage.async"
     },
     shim: {
         jquery: { exports: "jquery" },

@@ -20,3 +20,5 @@ define(['backbone', 'router', 'views/shared/mainview', 'views/shared/navview', '
         }
     };
 });
+
+//nav o content i main

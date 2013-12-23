@@ -4,4 +4,5 @@ p Total: #{model.get('amount')} kr
 p Account type: #{model.get('accountType')}
 p Date created: #{model.get('createDate')}
 
-a(href='#account/#{model.id}/edit').btn.btn-warning Edit #{model.get('name')}
+a(href='#account/#{model.id}/edit').btn.btn-warning Edit
+button.btn.btn-danger.deleteAccount Delete

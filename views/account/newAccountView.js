@@ -17,6 +17,7 @@ define(['backbone', 'underscore', 'jade!templates/addAccount', 'models/accountmo
             //Using common/serializeObject function to get a JSON data object from form
             var myObj = $(ev.currentTarget).serializeObject();
             this.options.collection.create(new AccountModel(myObj));
+            
             Backbone.history.navigate('accounts', {trigger:true});
         },
         //Display functions

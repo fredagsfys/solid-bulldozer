@@ -10,3 +10,4 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/loan'],
         }
     });
 });
+

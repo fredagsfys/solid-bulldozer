@@ -1,5 +1,5 @@
-define(['backbone', 'underscore', 'jade!templates/account'], 
-    function(Backbone, underscore, template){
+define(['backbone', 'underscore', 'jade!templates/account', 'views/shared/contentview'], 
+    function(Backbone, underscore, template, MessageView){
     return Backbone.View.extend({
         //Templates
         template: template,

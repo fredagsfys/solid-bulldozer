@@ -1,5 +1,5 @@
-define(['backbone', 'underscore', 'jade!templates/addAccount', 'models/accountmodel', 'common/serializeObject'], 
-    function(Backbone, underscore, template, AccountModel, SerializeObject){
+define(['backbone', 'underscore', 'jade!templates/addAccount', 'models/accountmodel', 'common/serializeObject', 'views/shared/contentview'], 
+    function(Backbone, underscore, template, AccountModel, SerializeObject, MessageView){
     return Backbone.View.extend({
         //Templates
         template: template,

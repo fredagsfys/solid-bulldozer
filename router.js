@@ -3,7 +3,7 @@ console.log("...LOADING router.js")
     This function takes care of the url-routing and builds up the view for contentView.
     Depending on which url is visited it creates the specific view for it.
 */
-define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startview', 'views/account/accountView', 'views/account/accountListView',  'views/account/newAccountView', 'views/account/editAccountView', 'collections/accountcollection', 'views/messageView'],
+define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startView', 'views/account/accountView', 'views/account/accountListView',  'views/account/newAccountView', 'views/account/editAccountView', 'collections/accountcollection', 'views/messageView'],
   function(Backbone, jquery, underscore, bootstrap, Spinner, StartView, AccountView, AccountListView, CreateAccountView, EditAccountView, AccountCollection, MessageView){
     return Backbone.Router.extend({
           el : '.content',

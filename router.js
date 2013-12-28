@@ -3,8 +3,8 @@ console.log("...LOADING router.js")
     This function takes care of the url-routing and builds up the view for contentView.
     Depending on which url is visited it creates the specific view for it.
 */
-define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startView', 'views/account/accountView', 'views/account/accountListView',  'views/account/newAccountView', 'views/account/editAccountView', 'views/loanView', 'collections/accountcollection', "views/messageView"],
-  function(Backbone, jquery, underscore, bootstrap, Spinner, StartView, AccountView, AccountListView, CreateAccountView, EditAccountView, LoanView, AccountCollection, MessageView){
+define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startView', 'views/account/accountView', 'views/account/accountListView',  'views/account/newAccountView', 'views/account/editAccountView', 'collections/accountcollection', "views/messageView"],
+  function(Backbone, jquery, underscore, bootstrap, Spinner, StartView, AccountView, AccountListView, CreateAccountView, EditAccountView, AccountCollection, MessageView){
     return Backbone.Router.extend({
           el : '.content',
           //Constructor
@@ -22,8 +22,6 @@ define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startVie
             "account/new" : "newAccount",
             "account/:id" : "account",
             "account/:id/edit" : "editAccount",
-            //Loan
-            "loan" : "loan"
           },
           //Start
           start: function(){
@@ -83,15 +81,6 @@ define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startVie
               }
             });
           },
-          //Loan
-          loan: function(){
-            if(this.currentView)
-              this.cleanUp(this.currentView);
-            
-            this.currentView = new LoanView();
-            this.nav(this.currentView, 'loan');
-          },
-          //Other
           //Function which renders mainView and its content.
           nav: function(view, sectionid){ this.mainView.show(view, sectionid); },
 

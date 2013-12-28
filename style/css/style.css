@@ -107,3 +107,6 @@ img.lolGif{
     border-bottom-right-radius: 25px;
     border: 1px solid black;
 }
+.container .content .accountTypes{
+    margin-top: 15px;
+}

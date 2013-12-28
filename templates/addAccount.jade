@@ -1,22 +1,100 @@
-form.form-horizontal.add-account-form
-form.form-horizontal.add-account-form
-    .form-group
-        label.col-sm-2.control-label Name
-        .col-xs-2
-            input(name='name').form-control
-    .form-group
-        label.col-sm-2.control-label Amount
-        .col-xs-2
-            input(name='amount', value='0').form-control
-    .form-group
-        label.col-sm-2.control-label Account type
-        .col-xs-2
-            select(class="form-control",name="accountType")
-              option(value="Private") Private - 5% rate
-              option(value="Service") Service - 8% rate
-              option(value="Captial") Captial - 12% rate
-              option(value="Worldnature") Worldnature - 22% rate
-    .form-group
-        .col-xs-offset-2.col-xs-10
-            button(type="submit").btn.btn-default Add account
-        
+.row
+  form.add-account-form
+    .col-md-4.col-sm-offset-4
+      .panel.panel-default
+        .panel-heading
+          h3.panel-title
+            | Sign new account
+        .panel-body
+          form(role='form')
+            .form-group
+              label
+                | ACCOUNT NAME
+              .input-group
+                input.form-control(name='name', type='text', placeholder='Valid Account Name', required='required', autofocus='autofocus')
+                span.input-group-addon
+                  span.glyphicon.glyphicon-lock
+            .row
+              .col-xs-12.col-md-6
+                .form-group
+                  label
+                    | DEPOSIT AMOUNT
+                  .col-xs-9
+                    input.form-control(name='amount', value='0', type='text', required='required')
+              .col-xs-12.col-md-6.pull-right
+                .form-group
+                  label
+                    | TYPE
+                  select(class="form-control",name="accountType")
+                    option(value="Private") Private - 5% rate
+                    option(value="Service") Service - 8% rate
+                    option(value="Captial") Captial - 12% rate
+                    option(value="Worldnature") Worldnature - 22% rate
+      button.btn.btn-success.btn-lg.btn-block(type="submit") Apply
+
+.col-lg-12.accountTypes
+  .row
+    .col-md-3.accountPlan
+      .well
+        h2.text-muted Private
+        div
+          img.img-circle(alt='300x200', style='width: 70%; margin-left: 30px;', src='style/images/Private.png')
+        p
+          span.label.label-info COMMON
+        ul
+          li 1 Private account
+          li Unlimited transactions
+          li 5 % rate
+          li E-mail support
+        p
+
+        hr
+        h3 $10.99 / month
+    .col-md-3.accountPlan
+      .well
+        h2.text-muted Service
+        div
+          img.img-circle(alt='300x200', style='width: 70%; margin-left: 30px;', src='style/images/Service.png')
+        p
+          span.label.label-info COMMON
+        ul
+          li 1 Service account
+          li Share with 1 other user
+          li 5 % rate
+          li E-mail support
+        p
+
+        hr
+        h3 $15.99 / month
+    .col-md-3.accountPlan
+      .well
+        h2.text-warning Capital
+        div
+          img.img-circle(alt='300x200', style='width: 70%; margin-left: 30px;', src='style/images/Captial.png')
+        p
+          span.label.label-success SAVER
+        ul
+          li 1 Service account
+          li Share with 1 other user
+          li 5 % rate
+          li E-mail support
+        p
+
+        hr
+        h3 $30.99 / month
+    .col-md-3.accountPlan
+      .well
+        h2.text-danger World nature
+        div
+          img.img-circle(alt='300x200', style='width: 70%; margin-left: 30px;', src='style/images/Worldnature.png')
+        p
+          span.label.label-danger EXCLUSIVE
+        ul
+          li 1 Service account
+          li Share with 1 other user
+          li 5 % rate
+          li E-mail support
+        p
+      
+        hr
+        h3 $99.79 / month

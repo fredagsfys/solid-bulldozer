@@ -23,7 +23,7 @@ define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startVie
             "account/:id" : "account",
             "account/:id/edit" : "editAccount",
           },
-          //Start
+          //START
           start: function(){
             if(this.currentView)
               this.cleanUp(this.currentView);
@@ -31,7 +31,9 @@ define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startVie
             this.currentView = new StartView({el: this.el});
             this.nav(this.currentView, 'start');
           },
-          //Account
+          //ACCOUNT
+
+          // Shows a list of accounts
           accounts: function(){
             if(this.currentView)
               this.cleanUp(this.currentView);
@@ -46,6 +48,7 @@ define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startVie
               }
             });
           },
+          // Shows a single account
           account: function(id){
             if(this.currentView)
               this.cleanUp(this.currentView);
@@ -60,6 +63,7 @@ define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startVie
               }
             });
           },
+          // Shows a create form account
           newAccount: function(){
             if(this.currentView)
               this.cleanUp(this.currentView);
@@ -67,6 +71,7 @@ define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startVie
             this.currentView = new CreateAccountView({el: this.el, collection: this.collection});
             this.nav(this.currentView, 'accounts');
           },
+          // Shows a editform account
           editAccount: function(id){
             if(this.currentView)
               this.cleanUp(this.currentView);
@@ -81,9 +86,9 @@ define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startVie
               }
             });
           },
-          //Function which renders mainView and its content.
+          // Function which renders mainView and its content.
           nav: function(view, sectionid){ this.mainView.show(view, sectionid); },
-
+          // Adds a loading gif while fetching data
           addFetchWaiting: function(){
             var spinner = new Spinner().spin();
             $(this.el).append(spinner.el);

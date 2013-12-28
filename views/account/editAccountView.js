@@ -21,7 +21,7 @@ define(['backbone', 'underscore', 'jade!templates/editAccount', 'models/accountm
             model.save();
             this.options.collection.set(model);
             //Flash message
-            var success = new MessageView({ type: 'success', text: 'Account updated successfully' });
+            var success = new MessageView({ type: 'success', text: 'Account updated successfully!' });
             Backbone.history.navigate('accounts', {trigger:true});
         },
         //Display functions

@@ -1,3 +1,4 @@
+// Function used to seralize inputs from form.
 define(['jquery'], 
     function(jquery){
       jquery.fn.serializeObject = function() {

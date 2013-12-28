@@ -1,8 +1,12 @@
+//Used to setup predefined data when starting application first time.
+
 define(['backbone', 'models/accountmodel', 'collections/accountcollection'], 
     function(Backbone, AccountModel, AccountCollection){
      return {
         fillData: function(){
+            // Creating collection
             collec = new AccountCollection();
+            // Adding hardcoded data to collection
             collec.create(
                 new AccountModel().set({name: "Fundings", amount: 2500, accountType: "Worldnature"})
             );

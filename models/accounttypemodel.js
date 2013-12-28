@@ -1,3 +1,4 @@
+// Model used as a "Enum". Holds diffrent account types
 define(["backbone"], 
     function(Backbone){
 	return Backbone.Model.extend({

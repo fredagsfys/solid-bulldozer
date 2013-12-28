@@ -19,10 +19,9 @@ define(['backbone', 'underscore', 'jade!templates/account', 'views/shared/conten
         },
         deleteAccount: function(){
             if(confirm("Are you sure? Deleting is permanent")) {
-                this.model.destroy();
-
                 //Flash message
-                var success = new MessageView({ type: 'success', text: 'Account deleted successfully' });
+                var success = new MessageView({ type: 'success', text: 'Account deleted successfully!' });
+                this.model.destroy();
                 Backbone.history.navigate('accounts', {trigger:true});
             }
         }

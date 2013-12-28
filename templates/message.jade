@@ -1,0 +1,5 @@
+.flashMessage
+  .alert.alert-dismissable.{{ #error }}.alert-danger.{{./error.}}.{{.^error.}}.alert-success.{{./error.}}
+    button.close(type='button', data-dismiss='alert') ×
+    strong #{ header }
+    p #{ message }

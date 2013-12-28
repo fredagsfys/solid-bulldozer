@@ -5,7 +5,7 @@ define(["backbone"],
             name: null,
             amount: 0,
             accountType: null,
-            createDate: new Date.toDateTime()
+            createDate: new Date()
         }
     });
 });

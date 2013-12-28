@@ -3,8 +3,8 @@ console.log("...LOADING router.js")
     This function takes care of the url-routing and builds up the view for contentView.
     Depending on which url is visited it creates the specific view for it.
 */
-define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startView', 'views/account/accountView', 'views/account/accountListView',  'views/account/newAccountView', 'views/account/editAccountView', 'views/loanView', 'collections/accountcollection'],
-  function(Backbone, jquery, underscore, bootstrap, Spinner, StartView, AccountView, AccountListView, CreateAccountView, EditAccountView, LoanView, AccountCollection){
+define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startView', 'views/account/accountView', 'views/account/accountListView',  'views/account/newAccountView', 'views/account/editAccountView', 'views/loanView', 'collections/accountcollection', "views/messageView"],
+  function(Backbone, jquery, underscore, bootstrap, Spinner, StartView, AccountView, AccountListView, CreateAccountView, EditAccountView, LoanView, AccountCollection, MessageView){
     return Backbone.Router.extend({
           el : '.content',
           //Constructor
@@ -22,7 +22,6 @@ define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startVie
             "account/new" : "newAccount",
             "account/:id" : "account",
             "account/:id/edit" : "editAccount",
-
             //Loan
             "loan" : "loan"
           },
@@ -57,6 +56,7 @@ define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startVie
             var self = this;
             this.collection.fetch({
               success: function(response){
+                  var success = new MessageView({ type: 'success', text: 'Account fetched successfully' });
                   self.currentView = new AccountView({el: self.el, model: response.getAccountById(id)});
                   self.nav(self.currentView, 'accounts');
               }
@@ -73,9 +73,11 @@ define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startVie
             if(this.currentView)
               this.cleanUp(this.currentView);
 
+            this.addFetchWaiting();
             var self = this;
             this.collection.fetch({
               success: function(response){
+                  var success = new MessageView({ type: 'success', text: 'Account fetched successfully' });
                   self.currentView = new EditAccountView({el: self.el, collection: response, id: id});
                   self.nav(self.currentView, 'accounts');
               }
@@ -94,7 +96,6 @@ define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startVie
           nav: function(view, sectionid){ this.mainView.show(view, sectionid); },
 
           addFetchWaiting: function(){
-            $('.currentPage').html("<h3>Fetching data...</h3>");
             var spinner = new Spinner().spin();
             $(this.el).append(spinner.el);
           },

@@ -4,7 +4,6 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/start'],
         template: template,
         //Constructor
         initialize: function(){
-            $('.currentPage').html("<h3>Welcome!</h3>");
         },
         render: function(){       
             this.$el.html(this.template());

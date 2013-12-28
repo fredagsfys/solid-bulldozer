@@ -5,7 +5,14 @@
                 img(src='style/images/Bulldozer.png')
         .navbar-collapse.collapse
 .top-content
-    .currentPage.col-xs-5
+    .currentP.col-xs-5
+        form#search-form.navbar-form.navbar-left(method='GET', role='search')
+            .form-group.form-slide
+                input.form-control.form-input-slide(type='text', name='q', placeholder='Search anything...')
+            button.btn.btn-default.search-btn(type='submit')
+                span.glyphicon.glyphicon-search
+
+
     .currentUser.pull-right.col-xs-2
         span.col-xs-4 Haris Kljajic
         img(src='style/images/haris.jpg').img-circle.img-polaroid

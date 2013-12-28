@@ -1,8 +1,35 @@
-div#target.col-xs-3
-	if models !== "undefined" && models !== null && models.length !== 0 
-		for item in models
-			a(href='#account/#{item.id}') #{item.get("name")}
-			p
-	else
-		p Seems you have no account yet...
-		a(href='#account/new').btn.btn-default Create one
+.panel.panel-default.widget
+      .panel-heading.col-lg-12
+        span.glyphicon.glyphicon-align-left
+          h3.panel-title
+            |  Account list
+      .panel-body
+        ul.list-group
+        if models !== "undefined" && models !== null && models.length !== 0 
+          for item in models
+            li.list-group-item
+              .row
+                .col-xs-2.col-md-1
+                  img.img-circle.img-responsive(src='style/images/#{item.get('accountType')}.png', alt='')
+                .col-xs-10.col-md-11
+                  div
+                    a(href='#account/#{item.id}')
+                      | #{item.get("name")}
+                    .mic-info
+                      | By:
+                      a(href='#') Haris Kljajic
+                      br
+                      | on #{item.get("createDate")}
+                  .comment-text
+                    | Type: #{item.get("accountType")}
+                  .action
+                    a(href='#account/#{item.id}/edit')
+                      button.btn.btn-primary.btn-xs(type='button', title='Edit') 
+                        span.glyphicon.glyphicon-pencil
+                    a(href='#account/#{item.id}')
+                      button.btn.btn-success.btn-xs(type='button', title='Read') 
+                        span.glyphicon.glyphicon-ok
+
+        a.btn.btn-primary.btn-sm.btn-block(href='#', role='button', disabled='disabled') 
+          span.glyphicon.glyphicon-refresh
+          |  More

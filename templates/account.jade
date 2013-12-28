@@ -1,8 +1,42 @@
+ul.thumbnails.list-unstyled.specificAccount.col-md-12
+  li.col-md-4.col-sm-offset-4
+    .thumbnail(style='padding: 0;')
+      div(style='padding: 4px;')
+        img(alt='300x200', style='width: 100%;', src='style/images/#{model.get('accountType')}.png')
+      .caption
+        h2 #{model.get('name')}
+        p Created #{model.get('createDate')}
+        p
+          i.icon.icon-map-marker
+          | Kalmar, Sweden
+        .pull-left
+          .action
+            a(href='#account/#{model.id}/edit')
+              button.btn.btn-primary.btn-xs(type='button', title='Edit') 
+                span.glyphicon.glyphicon-pencil
+            a(href='#accounts')
+              button.btn.btn-success.btn-xs(type='button', title='Back to list') 
+                span.glyphicon.glyphicon-align-left
+            button.btn.btn-danger.btn-xs.deleteAccount(type='button', title='Delete') 
+              span.glyphicon.glyphicon-trash 
+      .modal-footer(style='text-align: left;')
+        .row
+          .col-md-4
+            if model.get('accountType') == "Private" || model.get('accountType') == "Service"
+              b 5 %
+            if model.get('accountType') == "Captial"
+              b 12 %
+            if model.get('accountType') == "Worldnature"
+              b 22 %
+            br
+            small RATE
+          .col-md-4
+            b $#{model.get('amount')}
+            br
+            small BALANCE
+          .col-md-4
+            b #{model.get('accountType')}
+            br
+            small TYPE
 
-p Account name: #{model.get('name')}
-p Total: #{model.get('amount')} kr
-p Account type: #{model.get('accountType')}
-p Date created: #{model.get('createDate')}
 
-a(href='#account/#{model.id}/edit').btn.btn-warning Edit
-button.btn.btn-danger.deleteAccount Delete

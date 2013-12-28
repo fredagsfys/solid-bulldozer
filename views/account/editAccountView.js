@@ -1,11 +1,10 @@
-define(['backbone', 'underscore', 'jade!templates/editAccount', 'models/accountmodel', 'common/serializeObject'], 
-    function(Backbone, underscore, template, AccountModel, SerializeObject){
+define(['backbone', 'underscore', 'jade!templates/editAccount', 'models/accountmodel', 'common/serializeObject',  "views/messageView"], 
+    function(Backbone, underscore, template, AccountModel, SerializeObject, MessageView){
     return Backbone.View.extend({
         //Templates
         template: template,
         //Constructor
         initialize: function(){
-            $('.currentPage').html("<h3>Accounts <span class='glyphicon glyphicon-chevron-right'> </span> New Account</h3>");
         },
         //Events
         events: {
@@ -21,7 +20,8 @@ define(['backbone', 'underscore', 'jade!templates/editAccount', 'models/accountm
             model.set(myObj);
             model.save();
             this.options.collection.set(model);
-
+            //Flash message
+            var success = new MessageView({ type: 'success', text: 'Account updated successfully' });
             Backbone.history.navigate('accounts', {trigger:true});
         },
         //Display functions

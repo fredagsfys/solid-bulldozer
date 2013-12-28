@@ -1,22 +1,45 @@
 form.form-horizontal.add-account-form
-form.form-horizontal.add-account-form
-    .form-group
-        label.col-sm-2.control-label Name
-        .col-xs-2
-            input(name='name', value='#{model.get('name')}').form-control
-    .form-group
-        label.col-sm-2.control-label Amount
-        .col-xs-2
-            input(name='amount', value='#{model.get('amount')}').form-control
-    .form-group
-        label.col-sm-2.control-label Account type
-        .col-xs-2
-            select(class="form-control",name="accountType")
-              option(value="Private") Private - 5% rate
-              option(value="Service") Service - 8% rate
-              option(value="Captial") Captial - 12% rate
-              option(value="Worldnature") Worldnature - 22% rate
-    .form-group
-        .col-xs-offset-2.col-xs-10
-            button(type="submit").btn.btn-default Update account
-        
+  ul.thumbnails.list-unstyled.specificAccount.col-md-12
+    li.col-md-4.col-sm-offset-4
+      .thumbnail(style='padding: 0;')
+        div(style='padding: 4px;')
+          img(alt='300x200', style='width: 100%;', src='style/images/#{model.get('accountType')}.png')
+        .caption
+          input(name='name', value='#{model.get('name')}').form-control
+          p
+          p Created #{model.get('createDate')}
+          p
+            i.icon.icon-map-marker
+            | Kalmar, Sweden
+          .pull-left
+            .action
+              button.btn.btn-success.btn-xs.add-account-form(type='submit', title='Save changes')
+                span.glyphicon.glyphicon-ok
+              a(href='#account/#{model.id}')
+                button.btn.btn-danger.btn-xs.deleteAccount(type='button', title='Cancel') 
+                  span.glyphicon.glyphicon-remove
+        .modal-footer(style='text-align: left;')
+          .row
+            .col-md-4
+              if model.get('accountType') == "Private" || model.get('accountType') == "Service"
+                input(name='amount', value='5 %', disabled='disabled').form-control
+              if model.get('accountType') == "Captial"
+                input(name='amount', value='12 %', disabled='disabled').form-control
+              if model.get('accountType') == "Worldnature"
+                input(name='amount', value='22 %', disabled='disabled').form-control
+              br
+              small RATE
+            .col-md-4
+              input(name='amount', value='#{model.get('amount')}').form-control
+              br
+              small BALANCE
+            .col-md-4
+              select(class="form-control",name="accountType")
+                option(value="Private") Private - 5% rate
+                option(value="Service") Service - 8% rate
+                option(value="Captial") Captial - 12% rate
+                option(value="Worldnature") Worldnature - 22% rate
+              br
+              small TYPE
+
+

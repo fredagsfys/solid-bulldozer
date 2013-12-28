@@ -4,7 +4,6 @@ define(['backbone', 'underscore', 'jade!templates/accountList'],
         template: template,
         
         initialize: function(){
-            $('.currentPage').html("<h3>Accounts</h3>");
         },
         
         render: function(){

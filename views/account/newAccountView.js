@@ -5,7 +5,6 @@ define(['backbone', 'underscore', 'jade!templates/addAccount', 'models/accountmo
         template: template,
         //Constructor
         initialize: function(){
-            $('.currentPage').html("<h3>Accounts <span class='glyphicon glyphicon-chevron-right'> </span> New Account</h3>");
         },
         //Events
         events: {
@@ -18,6 +17,9 @@ define(['backbone', 'underscore', 'jade!templates/addAccount', 'models/accountmo
             var myObj = $(ev.currentTarget).serializeObject();
             this.options.collection.create(new AccountModel(myObj));
             
+
+            //Flash message
+            var success = new MessageView({ type: 'success', text: 'Account created successfully' });
             Backbone.history.navigate('accounts', {trigger:true});
         },
         //Display functions

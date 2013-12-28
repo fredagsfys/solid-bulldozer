@@ -6,7 +6,6 @@ define(['backbone', 'underscore', 'jade!templates/account'],
         //Constructor
         initialize: function(){
             this.model = this.options.model;
-            $('.currentPage').html("<h3>Account</h3>");
         },
         //Events
         events: {
@@ -19,8 +18,13 @@ define(['backbone', 'underscore', 'jade!templates/account'],
             return this;
         },
         deleteAccount: function(){
-            this.model.destroy();
-            Backbone.history.navigate('accounts', {trigger:true});
+            if(confirm("Are you sure? Deleting is permanent")) {
+                this.model.destroy();
+
+                //Flash message
+                var success = new MessageView({ type: 'success', text: 'Account deleted successfully' });
+                Backbone.history.navigate('accounts', {trigger:true});
+            }
         }
     });
 });

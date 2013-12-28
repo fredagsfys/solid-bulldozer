@@ -40,9 +40,6 @@ div.content{
     min-height: 500px;
     margin: 75px 10px 10px 10px;
 }
-div.content .add-account-form{
-    margin-top: 20px;
-}
 footer{
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
 }
@@ -65,4 +62,48 @@ div.footer .section_bottom p{
 }
 img.lolGif{
     width: 60%;
+}
+.widget .panel-body { padding:0px; }
+.widget .list-group { margin-bottom: 0; }
+.widget .panel-title { display:inline }
+.widget .label-info { float: right; }
+.widget li.list-group-item {border-radius: 0;border: 0;border-top: 1px solid #ddd;}
+.widget li.list-group-item:hover { background-color: rgba(86,61,124,.1); }
+.widget .mic-info { color: #666666;font-size: 11px; }
+.widget .action { margin-top:5px; }
+.widget .comment-text { font-size: 12px; }
+.widget .btn-block { border-top-left-radius:0px;border-top-right-radius:0px; }
+
+.action button{
+    margin-right: 5px;
+}
+.container .content .panel{
+    margin-top: 15px;
+}
+.container .form-group{
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.container #search-form button{
+    margin-top: 5px;
+}
+.container .content .specificAccount{
+    margin-top: 15px;
+    margin-bottom: 160px;
+}
+.container .content .start{
+    margin-top: 15px;
+    max-width: 650px;
+}
+.flashMessage{
+    position: absolute;
+    top: 67px;
+    z-index: 200;
+    padding: 25px;
+    margin-left: 30px;
+    margin-top: 5px;
+    max-width: 350px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 1px solid black;
 }

@@ -10,7 +10,8 @@ require.config({
             jade: "lib/jade/jade",
             spin: "lib/spin/spin",
             "bb-rel":"lib/backbone/backbone-relational",
-            "bb-loc":"lib/backbone/backbone.localStorage.async"
+            "bb-loc":"lib/backbone/backbone.localStorage.async",
+            "backbone-validation": "lib/backbone/backbone-validation",
     },
     shim: {
         jquery: { exports: "jquery" },
@@ -22,6 +23,7 @@ require.config({
         },
         "bb-rel": ["backbone","underscore"],
         "bb-loc": ["backbone","underscore"],
+        "backbone-validation": ["backbone", "underscore"],
         bootstrap: { 
                 deps: ["jquery"],
                 exports: "bootstrap" 

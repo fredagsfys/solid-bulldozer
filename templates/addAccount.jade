@@ -10,17 +10,19 @@
             .form-group
               label
                 | ACCOUNT NAME
-              .input-group
-                input.form-control(name='name', type='text', placeholder='Valid Account Name', required='required', autofocus='autofocus')
-                span.input-group-addon
-                  span.glyphicon.glyphicon-lock
+              .control-group
+                .input-group
+                  input.form-control(name='name', type='text', placeholder='Valid Account Name', autofocus='autofocus')
+                  span.input-group-addon
+                    span.glyphicon.glyphicon-lock
             .row
               .col-xs-12.col-md-6
                 .form-group
                   label
                     | DEPOSIT AMOUNT
                   .col-xs-9
-                    input.form-control(name='amount', value='0', type='text', required='required')
+                    .control-group
+                      input.form-control(name='amount', placeholder='Amount in $', type='text')
               .col-xs-12.col-md-6.pull-right
                 .form-group
                   label
@@ -30,6 +32,8 @@
                     option(value="Service") Service - 8% rate
                     option(value="Captial") Captial - 12% rate
                     option(value="Worldnature") Worldnature - 22% rate
+        .errorList.alert-danger
+          span.error-message.hidden
       button.btn.btn-success.btn-lg.btn-block(type="submit") Apply
 
 .col-lg-12.accountTypes

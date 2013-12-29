@@ -99,14 +99,17 @@ img.lolGif{
     position: absolute;
     top: 67px;
     z-index: 200;
-    padding: 25px;
-    margin-left: 30px;
+    padding: 34px;
+    margin-left: 20px;
     margin-top: 5px;
     max-width: 350px;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     border: 1px solid black;
 }
 .container .content .accountTypes{
     margin-top: 15px;
+}
+.errorList {
+    padding-left: 15px;
 }

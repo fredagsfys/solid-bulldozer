@@ -4,7 +4,7 @@ console.log("...LOADING app.js")
     After the buildup it sends the nested mainview into routing to fill it up with content depending on route-url
     Last but not least it sets up predefined data.
 */
-define(['backbone', 'router', 'views/shared/mainview','common/predefineData'], 
+define(['backbone', 'router', 'views/shared/mainview', 'common/predefineData'], 
     function(Backbone, Router, MainView, PredefineData){
      return {
         start: function(){

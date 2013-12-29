@@ -1,11 +1,15 @@
-form.form-horizontal.add-account-form
+form.add-account-form
   ul.thumbnails.list-unstyled.specificAccount.col-md-12
     li.col-md-4.col-sm-offset-4
       .thumbnail(style='padding: 0;')
         div(style='padding: 4px;')
           img(alt='300x200', style='width: 100%;', src='style/images/#{model.get('accountType')}.png')
         .caption
-          input(name='name', value='#{model.get('name')}').form-control
+          .control-group
+            .input-group
+              input(name='name', value='#{model.get('name')}', placeholder='Valid Account Name').form-control
+              span.input-group-addon
+                span.glyphicon.glyphicon-lock
           p
           p Created #{model.get('createDate')}
           p
@@ -30,7 +34,8 @@ form.form-horizontal.add-account-form
               br
               small RATE
             .col-md-4
-              input(name='amount', value='#{model.get('amount')}').form-control
+              .control-group
+                input(name='amount', value='#{model.get('amount')}', placeholder='Amount in $').form-control
               br
               small BALANCE
             .col-md-4
@@ -41,5 +46,7 @@ form.form-horizontal.add-account-form
                 option(value="Worldnature") Worldnature - 22% rate
               br
               small TYPE
+        .errorList.alert-danger
+          span.error-message.hidden        
 
 

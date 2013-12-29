@@ -1,4 +1,4 @@
-define(['backbone', 'underscore', 'jade!templates/account', 'views/shared/contentview'], 
+define(['backbone', 'underscore', 'jade!templates/account', 'views/messageView'], 
     function(Backbone, underscore, template, MessageView){
     return Backbone.View.extend({
         //Templates
@@ -19,10 +19,17 @@ define(['backbone', 'underscore', 'jade!templates/account', 'views/shared/conten
         },
         deleteAccount: function(){
             if(confirm("Are you sure? Deleting is permanent")) {
-                //Flash message
-                var success = new MessageView({ type: 'success', text: 'Account deleted successfully!' });
-                this.model.destroy();
-                Backbone.history.navigate('accounts', {trigger:true});
+                this.model.destroy({
+                   success : function(resp) { 
+                        //Flash success message
+                       var success = new MessageView({ type: 'success', text: 'Account deleted successfully!' });
+                       Backbone.history.navigate('accounts', true);
+                   },
+                   error : function(err) {
+                        //Flash error message
+                        var error = new MessageView({ type: 'error', text: 'Account failed to delete!' });
+                   }
+                });
             }
         }
     });

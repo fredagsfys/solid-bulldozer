@@ -42,9 +42,13 @@ define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startVie
             var self = this;
 
             this.collection.fetch({
-              success: function(response){
-                self.currentView = new AccountListView({el: self.el, collection: response});
+              success: function(resp){
+                self.currentView = new AccountListView({el: self.el, collection: resp});
                 self.nav(self.currentView, 'accounts');
+              },
+              error: function(err){
+                  // Flash error message
+                  var error = new MessageView({ type: 'error', text: 'Error fetching accountlist' });
               }
             });
           },
@@ -56,10 +60,16 @@ define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startVie
             this.addFetchWaiting();
             var self = this;
             this.collection.fetch({
-              success: function(response){
+              success: function(resp){
+                  // Flash success message
                   var success = new MessageView({ type: 'success', text: 'Account fetched successfully' });
-                  self.currentView = new AccountView({el: self.el, model: response.getAccountById(id)});
+
+                  self.currentView = new AccountView({el: self.el, model: resp.getAccountById(id)});
                   self.nav(self.currentView, 'accounts');
+              },
+              error: function(err){
+                  // Flash error message
+                  var error = new MessageView({ type: 'error', text: 'Error fetching account' });
               }
             });
           },
@@ -79,10 +89,16 @@ define(['backbone', 'jquery', 'underscore', 'bootstrap', 'spin', 'views/startVie
             this.addFetchWaiting();
             var self = this;
             this.collection.fetch({
-              success: function(response){
+              success: function(resp){
+                  // Flash success message
                   var success = new MessageView({ type: 'success', text: 'Account fetched successfully' });
-                  self.currentView = new EditAccountView({el: self.el, collection: response, id: id});
+                  
+                  self.currentView = new EditAccountView({el: self.el, collection: resp, id: id});
                   self.nav(self.currentView, 'accounts');
+              },
+              error: function(err){
+                  // Flash error message
+                  var error = new MessageView({ type: 'error', text: 'Error fetching account' });
               }
             });
           },

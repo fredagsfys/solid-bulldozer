@@ -14,9 +14,9 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/message'],
      
         cssClasses: {
             'success': 'alert-success',
-            'error': 'alert-warning',
-            'warning': 'alert-danger',
-            'information': 'information'
+            'error': 'alert-danger',
+            'warning': 'alert-warning',
+            'information': 'alert-warning'
         }, 
      
         events: {

@@ -13,7 +13,7 @@ define(["backbone"],
             name: [
                 { required: true, msg: "* Please enter name for account" },
                 { rangeLength: [3, 20], msg: "* Please choose a name between 3-20 characters"},
-                { pattern: "^[a-zåäöA-ZÅÄÖ]*$", msg: "* Please enter valid characters (a-zåäöA-ZÅÄÖ0-9)"}
+                { pattern: "^[a-zåäöA-ZÅÄÖ ]*$", msg: "* Please enter valid characters (a-zåäöA-ZÅÄÖ0-9 )"}
             ],
             amount: [
                 { required: true, msg: "* Please enter deposit amount" },

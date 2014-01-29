@@ -14,7 +14,7 @@ define(['backbone', 'router', 'views/shared/mainview', 'common/predefineData'],
             }
             var mainView = new MainView({el: ".container"}),
             //Passes nested MainView into routing to fill it up with chosen page
-            router = new Router({mainView: mainView});      
+            router = new Router({mainView: mainView});
             //Calls render() method in MainView to display content
             mainView.render();
             Backbone.history.start();

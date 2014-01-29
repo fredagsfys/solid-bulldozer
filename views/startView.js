@@ -7,7 +7,6 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/start'],
         },
         render: function(){       
             this.$el.html(this.template());
-            return this;
         }
     });
 });

@@ -20,7 +20,7 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/message'],
         }, 
      
         events: {
-            "click" : "closeNotification",
+            "click" : "closeNotification" //,
         },
      
         automaticClose: true, 
